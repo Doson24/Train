@@ -18,11 +18,15 @@ test data only employs positive integers.
 """
 
 def next_smaller(n):
+    n = str(n)
     if len(n) == 1:
         return -1
-    if n[0] > 1:
-        pass
-
+    if int(n[0]) > 1:
+        m = min([int(i) for i in n[1:]])
+        slice = [i for i in n[1:] if i != str(m)]
+        return n[0] + str(m) + "".join(slice)
+    else:
+        return -1
 if __name__ == '__main__':
 
-    next_smaller(531)
+    print(next_smaller(21))
